@@ -394,7 +394,7 @@ public class GUI {
 		JLabel label4_7 = new JLabel("出發時間");
 		JLabel label4_8 = new JLabel("到達時間");
 		JLabel label4_9 = new JLabel("全票");
-		JLabel label4_10 = new JLabel("敬老、孩童、愛心");
+		JLabel label4_10 = new JLabel("早鳥, 大學生");
 		JLabel label4_11 = new JLabel("小計");
 		label4_1.setForeground(Color.ORANGE);
 		
@@ -465,6 +465,16 @@ public class GUI {
 		panel4.add(button4_1, getConstraints(0, 6, 1, 1, 0, 0, GridBagConstraints.BOTH));
 		panel4.add(button4_2, getConstraints(9, 6, 1, 1, 0, 0, GridBagConstraints.BOTH));
 		
+		JPanel panel5 = new JPanel(new GridBagLayout());
+		
+		JLabel label5_1 = new JLabel("完成訂單");
+		
+		JButton button5_1 = new JButton("返回");
+
+		panel5.add(label5_1, getConstraints(0, 0, 1, 1, 0, 0, GridBagConstraints.BOTH));
+		panel5.add(button5_1, getConstraints(0, 1, 1, 1, 0, 0, GridBagConstraints.BOTH));
+		
+		
 		
 		backDateLabel.setVisible(false);
 		backDatePicker.setVisible(false);
@@ -522,6 +532,8 @@ public class GUI {
 				panel1.setVisible(true);
 				panel2.setVisible(false);
 				panel3.setVisible(false);
+				panel4.setVisible(false);
+				panel5.setVisible(false);
 			}
 		});
 		
@@ -532,6 +544,8 @@ public class GUI {
 				panel1.setVisible(false);
 				panel2.setVisible(true);
 				panel3.setVisible(false);
+				panel4.setVisible(false);
+				panel5.setVisible(false);
 			}
 		});
 		
@@ -542,6 +556,8 @@ public class GUI {
 				panel1.setVisible(false);
 				panel2.setVisible(false);
 				panel3.setVisible(true);
+				panel4.setVisible(false);
+				panel5.setVisible(false);
 			}
 		});
 		
@@ -551,6 +567,17 @@ public class GUI {
 				mode = 4;
 			}
 		});
+		
+		queryButton2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				panel1.setVisible(false);
+				panel2.setVisible(false);
+				panel3.setVisible(true);
+				panel4.setVisible(false);
+				panel5.setVisible(false);
+			}
+		});;
 		
 		for(int i=0;i<carQueryResult.length;i++) {
 			checkboxList[i].addActionListener(new ActionListener() {
@@ -577,16 +604,74 @@ public class GUI {
 			});
 		}
 		
+		button4_1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				panel1.setVisible(true);
+				panel2.setVisible(false);
+				panel3.setVisible(false);
+				panel4.setVisible(false);
+				panel5.setVisible(false);
+			}
+		});
+		
+		button4_2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				panel1.setVisible(false);
+				panel2.setVisible(false);
+				panel3.setVisible(false);
+				panel4.setVisible(false);
+				panel5.setVisible(true);
+			}
+		});
+		
+		button3_1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				panel1.setVisible(false);
+				panel2.setVisible(true);
+				panel3.setVisible(false);
+				panel4.setVisible(false);
+				panel5.setVisible(false);
+			}
+		});
+		button3_2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				panel1.setVisible(false);
+				panel2.setVisible(false);
+				panel3.setVisible(false);
+				panel4.setVisible(true);
+				panel5.setVisible(false);
+			}
+		});
+		
+		button5_1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				panel1.setVisible(true);
+				panel2.setVisible(false);
+				panel3.setVisible(false);
+				panel4.setVisible(false);
+				panel5.setVisible(false);
+				
+			}
+		});
+		
 		//=====================
 		panel1.setVisible(false);
 		panel2.setVisible(false);
 		panel3.setVisible(false);
-		panel4.setVisible(true);
+		panel4.setVisible(false);
+		panel5.setVisible(true);
 		
 		frame.add(panel1, getConstraints(0, 1, 6, 10, 0, 0, GridBagConstraints.BOTH));
 		frame.add(panel2, getConstraints(0, 1, 6, 10, 0, 0, GridBagConstraints.BOTH));
 		frame.add(panel3, getConstraints(0, 1, 6, 10, 0, 0, GridBagConstraints.BOTH));
 		frame.add(panel4, getConstraints(0, 1, 6, 10, 0, 0, GridBagConstraints.BOTH));
+		frame.add(panel5, getConstraints(0, 1, 6, 10, 0, 0, GridBagConstraints.BOTH));
 
 		frame.setVisible(true);
 	}
